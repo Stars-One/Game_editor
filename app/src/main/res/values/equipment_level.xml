@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="equipment_level">
+        <item>白色装备</item>
+        <item>紫色装备</item>
+        <item>绯红装备</item>
+        <item>黑紫装备</item>
+        <item>白银鬼器</item>
+        <item>黄金鬼器</item>
+        <item>暗金鬼器</item>
+        <item>白银仙器</item>
+        <item>黄金仙器</item>
+        <item>暗金仙器</item>
+        <item>白银神器</item>
+        <item>黄金神器</item>
+        <item>暗金神器</item>
+        <item>史诗神器</item>
+        <item>传说神器</item>
+        <item>至尊神器</item>
+        <item>神灵神器</item>
+        <item>神泣神器</item>
+        <item>旷世神器</item>
+    </string-array>
+</resources>

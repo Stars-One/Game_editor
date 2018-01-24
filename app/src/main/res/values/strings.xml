@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Gameeditor</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_current_property">角色当前属性</string>
+    <string name="menu_current_equipment">角色当前装备</string>
+    <string name="menu_plus_equipment">添加新装备</string>
+    <string name="menu_edit_equipment">保存修改</string>
+    <string name="menu_plus_part">添加新角色</string>
+    <string name="menu_show_equipment">查看装备</string>
+    <string name="menu_about">关于</string>
+
+    <string name="clothes">衣服</string>
+    <string name="head">头饰</string>
+    <string name="bracelet">手饰</string>
+    <string name="belt">腰部装饰</string>
+    <string name="gemstone">宝石</string>
+    <string name="ornaments">装饰</string>
+    <string name="pant">下装</string>
+    <string name="shoes">战靴</string>
+    <string name="sword">武器</string>
+    <string name="wing">背饰</string>
+    <string name="shield">防具</string>
+    <string name="necklace">项链</string>
+    <string name="ring">戒指</string>
+
+    <string name="type">种类</string>
+    <string name="live">生命</string>
+    <string name="magic">魔法</string>
+    <string name="attack">攻击</string>
+    <string name="defence">防御</string>
+    <string name="duck">闪避</string>
+    <string name="speed">速度</string>
+    <string name="strength">力量</string>
+    <string name="intelligence">智力</string>
+    <string name="spirit">体力</string>
+    <string name="quick">敏捷</string>
+    <string name="skill">技能</string>
+    <string name="equipment_name">装备名</string>
+    <string name="equipment_level">装备等级</string>
+    <string name="required_level">所需等级</string>
+    <string name="extra_skill">附加技能</string>
+    <string name="special_efficiency">特效</string>
+    <string name="magic_attack">魔攻</string>
+    <string name="edit">编辑</string>
+    <string name="delete">删除</string>
+</resources>
