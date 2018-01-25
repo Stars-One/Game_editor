@@ -63,6 +63,7 @@ public class ShowActivity extends Activity {
         mEditExtraSkill.setText(equipmentResult.getExtra_skill());
         mEditSpecialEfficiency.setText(equipmentResult.getSpecial_efficiency());
         mRequiredLevel.setText(equipmentResult.getRequired_level());
+
     }
 
 
