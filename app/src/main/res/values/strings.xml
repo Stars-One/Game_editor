@@ -5,6 +5,10 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="current_property">人物属性</string>
+    <string name="current_equipment">人物装备</string>
+
     <string name="explain">请打开左侧侧滑菜单选择功能进行使用</string>
     <string name="menu_current_property">角色当前属性</string>
     <string name="menu_current_equipment">角色当前装备</string>
@@ -48,4 +52,9 @@
     <string name="magic_attack">魔攻</string>
     <string name="edit">编辑</string>
     <string name="delete">删除</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>

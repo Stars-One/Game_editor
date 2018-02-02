@@ -7,143 +7,62 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.wan.gameditor.activity.CurrentActivity">
-
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="vertical">
-        <ImageView
-            android:id="@+id/image_head"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/vector_drawable_head"
-            android:layout_gravity="center"/>
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/linearLayoutProperty"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/current_property"
+                android:gravity="center"
+                android:textSize="15sp"
+
+                android:layout_weight="5"/>
+            <ImageView
+                android:id="@+id/imageViewProperty"
+                android:layout_gravity="center"
+                android:layout_width="70dp"
+                android:layout_height="10dp"
+                android:layout_weight="2"
+
+                android:background="@color/colorblue"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayoutEquipment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/current_equipment"
+                android:gravity="center"
+                android:textSize="15sp"
+
+                android:layout_weight="5"/>
+            <ImageView
+                android:id="@+id/imageViewEquipment"
+                android:layout_gravity="center"
+                android:layout_width="70dp"
+                android:layout_height="10dp"
+                android:layout_weight="2"
+                android:background="@color/colorgrey"/>
+        </LinearLayout>
     </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        >
-        <ImageView
-            android:id="@+id/image_defence"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/vector_drawable_shield"
-            android:orientation="horizontal"
-            android:layout_alignParentRight="true"
-            />
-        <ImageView
-            android:id="@+id/image_sword"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:orientation="horizontal"
-            android:background="@drawable/vector_drawable_sword"
-            android:layout_alignParentLeft="true"
-            />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        >
-
-        <LinearLayout
-            android:id="@+id/image_wing"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/vector_drawable_wing"
-            android:orientation="horizontal"
-            />
-
-        <LinearLayout
-            android:id="@+id/image_necklace"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_alignParentLeft="true"
-            android:background="@drawable/vector_drawable_necklace"
-            android:orientation="horizontal"
-            />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        >
-        <LinearLayout
-            android:id="@+id/image_belt"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/vector_drawable_belt"
-            android:orientation="horizontal"
-            android:layout_alignParentRight="true"
-            />
-        <LinearLayout
-            android:id="@+id/image_clothes"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:orientation="horizontal"
-            android:background="@drawable/vector_drawable_clothes"
-            android:layout_alignParentLeft="true"
-            />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        >
-        <LinearLayout
-            android:id="@+id/image_bracelet"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/vector_drawable_bracelet"
-            android:orientation="horizontal"
-            android:layout_alignParentRight="true"
-            />
-        <LinearLayout
-            android:id="@+id/image_pant"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:orientation="horizontal"
-            android:background="@drawable/vector_drawable_pant"
-            android:layout_alignParentLeft="true"
-            />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        >
-        <LinearLayout
-            android:id="@+id/image_gemstone"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/vector_drawable_gemstone"
-            android:orientation="horizontal"
-            android:layout_alignParentRight="true"
-
-            />
-        <LinearLayout
-            android:id="@+id/image_ring"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:orientation="horizontal"
-            android:background="@drawable/vector_drawable_ring"
-            android:layout_alignParentLeft="true"
-            />
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="vertical">
-        <ImageView
-            android:id="@+id/image_shoes"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/vector_drawable_shoes"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-
 </LinearLayout>
+
+
