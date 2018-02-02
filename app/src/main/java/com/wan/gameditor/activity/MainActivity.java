@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity
     private LinearLayout mLinearlayout;
 
     private long exitTime = 0;
-    private ImageView mImageHead;
-    private ImageButton mImageButton;
+
+    private ImageButton changeButton;
     private ImageView headImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,11 +122,8 @@ public class MainActivity extends AppCompatActivity
      */
         Button mCurrentProperty = (Button) findViewById(R.id.current_property);
         mCurrentProperty.setOnClickListener(this);
-        /*
-      角色当前装备
-     */
-        Button mCurrentEquipment = (Button) findViewById(R.id.current_equipment);
-        mCurrentEquipment.setOnClickListener(this);
+
+
         /*
       添加新装备
      */
@@ -146,10 +143,9 @@ public class MainActivity extends AppCompatActivity
         mAbout.setOnClickListener(this);
 
         mLinearlayout = (LinearLayout) findViewById(R.id.linearlayout);
-        mImageHead = (ImageView) findViewById(R.id.image_head);
-        mImageHead.setOnClickListener(this);
-        mImageButton = (ImageButton) findViewById(R.id.changePicture);
-        mImageButton.setOnClickListener(this);
+
+        changeButton = (ImageButton)findViewById(R.id.changePicture);
+        changeButton.setOnClickListener(this);
         headImage = (ImageView) findViewById(R.id.headPicture);
     }
 
@@ -176,11 +172,9 @@ public class MainActivity extends AppCompatActivity
         switch (v.getId()) {
 
             case R.id.current_property:
+                startActivity(new Intent(v.getContext(),CurrentActivity.class));
                 break;
-            case R.id.current_equipment:
-                mLinearlayout.setVisibility(View.VISIBLE);
-                onBackPressed();
-                break;
+            
             case R.id.new_equipment:
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, NewActivity.class);
@@ -211,10 +205,11 @@ public class MainActivity extends AppCompatActivity
             default:
                 break;
             case R.id.changePicture:
+
                 checkPermission();
                 break;
             case R.id.image_head:
-                enterchoseActivity("头饰");
+
                 break;
         }
     }
@@ -321,8 +316,6 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(MainActivity.this,"获取图片失败",Toast.LENGTH_SHORT).show();
         }
     }
-    public void enterChange(){
-        
-    }
+
 
 }

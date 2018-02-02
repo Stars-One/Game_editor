@@ -38,16 +38,7 @@
         android:textStyle="bold"
         android:text="@string/menu_current_property"/>
 
-    <Button
-        android:id="@+id/current_equipment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/check_button_bg"
-        android:gravity="center"
-        android:textStyle="bold"
 
-        android:text="@string/menu_current_equipment"
-        android:layout_weight="0.06"/>
     <Button
         android:id="@+id/new_equipment"
         android:layout_width="match_parent"
