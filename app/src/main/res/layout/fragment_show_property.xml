@@ -20,7 +20,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/equipment_name"
+                android:text="@string/currentid"
                 android:textSize="11sp"/>
 
             <TextView
@@ -47,7 +47,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/equipment_name"
+                android:text="@string/job"
                 android:textSize="11sp"/>
 
             <TextView
@@ -71,7 +71,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/equipment_name"
+                android:text="@string/livejob"
                 android:textSize="11sp"/>
 
             <TextView
@@ -105,7 +105,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/equipment_name"
+                android:text="@string/level"
                 android:textSize="11sp"/>
 
             <TextView
@@ -130,7 +130,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/equipment_name"
+                android:text="@string/live"
                 android:textSize="11sp"/>
 
             <TextView
@@ -154,7 +154,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/equipment_name"
+                android:text="@string/magic"
                 android:textSize="11sp"/>
 
             <TextView
@@ -188,7 +188,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/equipment_name"
+                android:text="@string/attack"
                 android:textSize="11sp"/>
 
             <TextView
@@ -213,7 +213,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/equipment_name"
+                android:text="@string/defence"
                 android:textSize="11sp"/>
 
             <TextView
@@ -237,7 +237,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/equipment_name"
+                android:text="@string/duck"
                 android:textSize="11sp"/>
 
             <TextView
@@ -271,7 +271,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/equipment_name"
+                android:text="@string/speed"
                 android:textSize="11sp"/>
 
             <TextView
@@ -296,7 +296,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/equipment_name"
+                android:text="@string/shengwang"
                 android:textSize="11sp"/>
 
             <TextView
@@ -320,7 +320,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/equipment_name"
+                android:text="@string/shengmi"
                 android:textSize="11sp"/>
 
             <TextView
