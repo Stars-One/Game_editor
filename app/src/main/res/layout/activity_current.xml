@@ -2,16 +2,25 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
 
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="20"/>
+
+    <fragment
+        android:name="com.wan.frament.ShowPropertyFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        tools:layout="@layout/fragment_show_property"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

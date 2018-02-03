@@ -52,9 +52,11 @@
     <string name="magic_attack">魔攻</string>
     <string name="edit">编辑</string>
     <string name="delete">删除</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="job">职业</string>
+    <string name="livejob">生活职业</string>
+    <string name="currentid">人物ID</string>
+    <string name="shengwang">声望</string>
+    <string name="shengmi">神秘</string>
+    <string name="level">等级</string>
 
 </resources>

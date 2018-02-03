@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.wan.frament.EquipmentFragment;
-import com.wan.frament.PropertyFragment;
 import com.wan.gameditor.R;
 import com.wan.utils.MyfragmentAdapter;
 
@@ -27,6 +26,7 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
     private LinearLayout mLinearLayoutEquipment;
     private List<Fragment> mlist;
     private int colorblue,colorgrey;
+    private Fragment propertyFragment,equipmentFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -84,8 +84,10 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
         mLinearLayoutEquipment.setOnClickListener(this);
 
         mlist = new ArrayList<>();
-        mlist.add(new PropertyFragment());
-        mlist.add(new EquipmentFragment());
+        propertyFragment = new Fragment();
+        equipmentFragment = new EquipmentFragment();
+        mlist.add(propertyFragment);
+        mlist.add(equipmentFragment);
 
         if(Build.VERSION.SDK_INT<=23){
             colorblue = handleColorBefore(R.color.colorblue);
