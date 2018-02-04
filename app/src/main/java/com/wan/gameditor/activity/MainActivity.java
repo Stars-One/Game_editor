@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.ContentUris;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -69,6 +70,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        load();
     }
 
     @Override
@@ -309,6 +312,7 @@ public class MainActivity extends AppCompatActivity
     //展示图片
     private void displayImage(String imagePath) {
         if (imagePath != null){
+            save(imagePath);//保存图片地址
             Bitmap bitImage = BitmapFactory.decodeFile(imagePath);//格式化图片
             headImage.setImageBitmap(bitImage);//为imageView设置图片
         }
@@ -316,6 +320,19 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(MainActivity.this,"获取图片失败",Toast.LENGTH_SHORT).show();
         }
     }
+    private void save(String imagePath){
+        SharedPreferences.Editor editor = getSharedPreferences("data",MODE_PRIVATE).edit();//获得SHaredPreferences.Editor对象
+        editor.putBoolean("imageChange",true);//添加一个名为imageChange的boolean值，数值为true
+        editor.putString("imagePath",imagePath);//保存imagePath图片路径
+        editor.apply();//提交
+    }
+    private void load(){
+        SharedPreferences preferences = getSharedPreferences("data",MODE_PRIVATE);//获得SharedPreferences的对象
+        //括号里的判断是去找imageChange这个对应的数值，若是找不到，则是返回false，找到了的话就是我们上面定义的true，就会执行其中的语句
+        if(preferences.getBoolean("imageChange",false)){
+            String imagePath = preferences.getString("imagePath","");//取出保存的imagePath，若是找不到，则是返回一个空
+            displayImage(imagePath);//调用显示图片方法，为ImageView设置图片
+        }
 
-
+    }
 }

@@ -29,13 +29,12 @@
                 android:text="："
                 android:textSize="11sp"/>
 
-            <EditText
+            <TextView
+                android:id="@+id/currentId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="6dp"
                 android:textSize="11sp"
-
-
                 />
         </LinearLayout>
 
@@ -56,7 +55,8 @@
                 android:text="："
                 android:textSize="11sp"/>
 
-            <EditText
+            <TextView
+                android:id="@+id/currentJob"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
@@ -80,7 +80,8 @@
                 android:text="："
                 android:textSize="11sp"/>
 
-            <EditText
+            <TextView
+                android:id="@+id/currentLiveJob"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
@@ -114,7 +115,8 @@
                 android:text="："
                 android:textSize="11sp"/>
 
-            <EditText
+            <TextView
+                android:id="@+id/currentLevel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
@@ -139,7 +141,8 @@
                 android:text="："
                 android:textSize="11sp"/>
 
-            <EditText
+            <TextView
+                android:id="@+id/currentLive"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
@@ -163,7 +166,8 @@
                 android:text="："
                 android:textSize="11sp"/>
 
-            <EditText
+            <TextView
+                android:id="@+id/currentMagic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
@@ -197,7 +201,8 @@
                 android:text="："
                 android:textSize="11sp"/>
 
-            <EditText
+            <TextView
+                android:id="@+id/currentAttack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
@@ -222,7 +227,8 @@
                 android:text="："
                 android:textSize="11sp"/>
 
-            <EditText
+            <TextView
+                android:id="@+id/currentDefence"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
@@ -246,7 +252,8 @@
                 android:text="："
                 android:textSize="11sp"/>
 
-            <EditText
+            <TextView
+                android:id="@+id/currentDuck"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
@@ -280,7 +287,8 @@
                 android:text="："
                 android:textSize="11sp"/>
 
-            <EditText
+            <TextView
+                android:id="@+id/currentSpeed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
@@ -305,7 +313,8 @@
                 android:text="："
                 android:textSize="11sp"/>
 
-            <EditText
+            <TextView
+                android:id="@+id/currentShengWang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
@@ -329,7 +338,8 @@
                 android:text="："
                 android:textSize="11sp"/>
 
-            <EditText
+            <TextView
+                android:id="@+id/currentShengMi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
