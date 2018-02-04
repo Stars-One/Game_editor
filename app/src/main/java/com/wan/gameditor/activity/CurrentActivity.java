@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.wan.frament.EquipmentFragment;
+import com.wan.frament.PointPlusFragment;
+import com.wan.frament.PropertyFragment;
 import com.wan.gameditor.R;
 import com.wan.utils.MyfragmentAdapter;
 
@@ -25,15 +27,19 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
     private ImageView mImageViewEquipment;
     private LinearLayout mLinearLayoutEquipment;
     private List<Fragment> mlist;
-    private int colorblue,colorgrey;
-    private Fragment propertyFragment,equipmentFragment;
+    private int colorblue, colorgrey;
+    private Fragment propertyFragment, equipmentFragment, pointplusFragment;
+    private ImageView mImageViewPointPlus;
+    private LinearLayout mLinearLayoutPointPlus;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current);
         initView();
-        mViewpager.setAdapter(new MyfragmentAdapter(getSupportFragmentManager(),mlist));
+
+        mViewpager.setAdapter(new MyfragmentAdapter(getSupportFragmentManager(), mlist));
         ViewPager.OnPageChangeListener listener = new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -44,17 +50,24 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
 
             public void onPageSelected(int position) {
 
-                switch (position){
+                switch (position) {
 
                     case 0:
                         mImageViewProperty.setBackgroundColor(colorblue);
                         mImageViewEquipment.setBackgroundColor(colorgrey);
+                        mImageViewPointPlus.setBackgroundColor(colorgrey);
                         break;
                     case 1:
                         mImageViewProperty.setBackgroundColor(colorgrey);
                         mImageViewEquipment.setBackgroundColor(colorblue);
+                        mImageViewPointPlus.setBackgroundColor(colorgrey);
                         break;
-                    default:break;
+                    case 2:
+                        mImageViewProperty.setBackgroundColor(colorgrey);
+                        mImageViewEquipment.setBackgroundColor(colorgrey);
+                        mImageViewPointPlus.setBackgroundColor(colorblue);
+                    default:
+                        break;
                 }
             }
 
@@ -64,12 +77,15 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
             }
         };
         mViewpager.addOnPageChangeListener(listener);
+
     }
+
     @TargetApi(23)
-    public int handldeColorOn(int colorid){
-         return getResources().getColor(colorid,null);
+    public int handldeColorOn(int colorid) {
+        return getResources().getColor(colorid, null);
     }
-    public int handleColorBefore(int colorid){
+
+    public int handleColorBefore(int colorid) {
         return getResources().getColor(colorid);
 
     }
@@ -84,18 +100,24 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
         mLinearLayoutEquipment.setOnClickListener(this);
 
         mlist = new ArrayList<>();
-        propertyFragment = new Fragment();
+        propertyFragment = new PropertyFragment();
         equipmentFragment = new EquipmentFragment();
+        pointplusFragment = new PointPlusFragment();
+
         mlist.add(propertyFragment);
         mlist.add(equipmentFragment);
+        mlist.add(pointplusFragment);
 
-        if(Build.VERSION.SDK_INT<=23){
+        if (Build.VERSION.SDK_INT <= 23) {
             colorblue = handleColorBefore(R.color.colorblue);
             colorgrey = handleColorBefore(R.color.colorgrey);
-        }else{
+        } else {
             colorblue = handldeColorOn(R.color.colorblue);
             colorgrey = handldeColorOn(R.color.colorgrey);
         }
+        mImageViewPointPlus = (ImageView) findViewById(R.id.imageViewPointPlus);
+        mLinearLayoutPointPlus = (LinearLayout) findViewById(R.id.linearLayoutPointPlus);
+        mLinearLayoutPointPlus.setOnClickListener(this);
     }
 
     @Override
@@ -104,14 +126,23 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.linearLayoutProperty:
                 mImageViewProperty.setBackgroundColor(colorblue);
                 mImageViewEquipment.setBackgroundColor(colorgrey);
+                mImageViewPointPlus.setBackgroundColor(colorgrey);
                 mViewpager.setCurrentItem(0);
                 break;
             case R.id.linearLayoutEquipment:
                 mImageViewProperty.setBackgroundColor(colorgrey);
                 mImageViewEquipment.setBackgroundColor(colorblue);
+                mImageViewPointPlus.setBackgroundColor(colorgrey);
                 mViewpager.setCurrentItem(1);
                 break;
-            default:break;
+            default:
+                break;
+            case R.id.linearLayoutPointPlus:
+                mImageViewProperty.setBackgroundColor(colorgrey);
+                mImageViewEquipment.setBackgroundColor(colorgrey);
+                mImageViewPointPlus.setBackgroundColor(colorblue);
+                mViewpager.setCurrentItem(2);
+                break;
         }
     }
 }
