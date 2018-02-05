@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import com.wan.frament.EquipmentFragment;
 import com.wan.frament.PointPlusFragment;
 import com.wan.frament.PropertyFragment;
+import com.wan.frament.ShowPropertyFragment;
 import com.wan.gameditor.R;
 import com.wan.utils.MyfragmentAdapter;
 import com.wan.utils.PersonProperty;
@@ -112,6 +113,8 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
         if(DataSupport.isExist(PersonProperty.class)){
             PersonProperty personProperty = DataSupport.findFirst(PersonProperty.class);
             propertyFragment = PropertyFragment.newInstance(personProperty,true);
+            ShowPropertyFragment showPropertyFragment=(ShowPropertyFragment)manager.findFragmentById(R.id.showPropertyFrag);
+            showPropertyFragment.setText(personProperty);
         }else{
             propertyFragment = PropertyFragment.newInstance(new PersonProperty(),false);
         }
