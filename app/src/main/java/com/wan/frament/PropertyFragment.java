@@ -12,7 +12,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.wan.gameditor.R;
+import com.wan.gameditor.activity.CurrentActivity;
 import com.wan.utils.PersonProperty;
+
+import org.litepal.crud.DataSupport;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -78,6 +81,9 @@ public class PropertyFragment extends Fragment {
                     getText();
                     save();
                     Toast.makeText(v.getContext(), "已保存", Toast.LENGTH_SHORT).show();
+                    CurrentActivity activity = (CurrentActivity)getActivity();
+                    PersonProperty personProperty = DataSupport.findFirst(PersonProperty.class);
+                    activity.updateShowProperty(personProperty);
                 }
             });
     }

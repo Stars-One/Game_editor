@@ -113,8 +113,7 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
         if(DataSupport.isExist(PersonProperty.class)){
             PersonProperty personProperty = DataSupport.findFirst(PersonProperty.class);
             propertyFragment = PropertyFragment.newInstance(personProperty,true);
-            ShowPropertyFragment showPropertyFragment=(ShowPropertyFragment)manager.findFragmentById(R.id.showPropertyFrag);
-            showPropertyFragment.setText(personProperty);
+            updateShowProperty(personProperty);
         }else{
             propertyFragment = PropertyFragment.newInstance(new PersonProperty(),false);
         }
@@ -165,5 +164,9 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
                 mViewpager.setCurrentItem(2);
                 break;
         }
+    }
+    public void updateShowProperty(PersonProperty personProperty){
+        ShowPropertyFragment showPropertyFragment=(ShowPropertyFragment)manager.findFragmentById(R.id.showPropertyFrag);
+        showPropertyFragment.setText(personProperty);
     }
 }
