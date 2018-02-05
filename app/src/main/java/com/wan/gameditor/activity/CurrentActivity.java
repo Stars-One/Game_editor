@@ -107,9 +107,15 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
         manager=getSupportFragmentManager();
 
         mlist = new ArrayList<>();
+        Log.d("CurrentAc","Test");
 
+        if(DataSupport.isExist(PersonProperty.class)){
+            PersonProperty personProperty = DataSupport.findFirst(PersonProperty.class);
+            propertyFragment = PropertyFragment.newInstance(personProperty,true);
+        }else{
+            propertyFragment = PropertyFragment.newInstance(new PersonProperty(),false);
+        }
 
-        propertyFragment = new PropertyFragment();
         equipmentFragment = new EquipmentFragment();
         pointplusFragment = new PointPlusFragment();
 

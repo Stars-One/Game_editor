@@ -1,12 +1,15 @@
 package com.wan.utils;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import org.litepal.crud.DataSupport;
 
 /**
  * Created by xen on 2018/2/5 0005.
  */
 
-public class PersonProperty extends DataSupport {
+public class PersonProperty extends DataSupport implements Parcelable {
     private String mID,Job,LiveJob;
     private int Level,Live,Magic,Attack,Defence,Duck,Speed,ShengWang,ShengMi;
 
@@ -105,4 +108,55 @@ public class PersonProperty extends DataSupport {
     public void setShengMi(int shengMi) {
         ShengMi = shengMi;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.mID);
+        dest.writeString(this.Job);
+        dest.writeString(this.LiveJob);
+        dest.writeInt(this.Level);
+        dest.writeInt(this.Live);
+        dest.writeInt(this.Magic);
+        dest.writeInt(this.Attack);
+        dest.writeInt(this.Defence);
+        dest.writeInt(this.Duck);
+        dest.writeInt(this.Speed);
+        dest.writeInt(this.ShengWang);
+        dest.writeInt(this.ShengMi);
+    }
+
+    public PersonProperty() {
+    }
+
+    protected PersonProperty(Parcel in) {
+        this.mID = in.readString();
+        this.Job = in.readString();
+        this.LiveJob = in.readString();
+        this.Level = in.readInt();
+        this.Live = in.readInt();
+        this.Magic = in.readInt();
+        this.Attack = in.readInt();
+        this.Defence = in.readInt();
+        this.Duck = in.readInt();
+        this.Speed = in.readInt();
+        this.ShengWang = in.readInt();
+        this.ShengMi = in.readInt();
+    }
+
+    public static final Parcelable.Creator<PersonProperty> CREATOR = new Parcelable.Creator<PersonProperty>() {
+        @Override
+        public PersonProperty createFromParcel(Parcel source) {
+            return new PersonProperty(source);
+        }
+
+        @Override
+        public PersonProperty[] newArray(int size) {
+            return new PersonProperty[size];
+        }
+    };
 }
