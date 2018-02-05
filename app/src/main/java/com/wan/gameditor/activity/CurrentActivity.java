@@ -4,8 +4,10 @@ import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,6 +17,9 @@ import com.wan.frament.PointPlusFragment;
 import com.wan.frament.PropertyFragment;
 import com.wan.gameditor.R;
 import com.wan.utils.MyfragmentAdapter;
+import com.wan.utils.PersonProperty;
+
+import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +36,7 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
     private Fragment propertyFragment, equipmentFragment, pointplusFragment;
     private ImageView mImageViewPointPlus;
     private LinearLayout mLinearLayoutPointPlus;
-
+    private FragmentManager manager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -99,14 +104,21 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
         mLinearLayoutEquipment = (LinearLayout) findViewById(R.id.linearLayoutEquipment);
         mLinearLayoutEquipment.setOnClickListener(this);
 
+        manager=getSupportFragmentManager();
+
         mlist = new ArrayList<>();
+
+
         propertyFragment = new PropertyFragment();
         equipmentFragment = new EquipmentFragment();
         pointplusFragment = new PointPlusFragment();
 
+
+
         mlist.add(propertyFragment);
         mlist.add(equipmentFragment);
         mlist.add(pointplusFragment);
+
 
         if (Build.VERSION.SDK_INT <= 23) {
             colorblue = handleColorBefore(R.color.colorblue);

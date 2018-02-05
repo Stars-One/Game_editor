@@ -1,7 +1,6 @@
 package com.wan.frament;
 
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -23,7 +22,7 @@ public class PropertyFragment extends Fragment {
 
     private String ID,Job,LiveJob;
     private int Level,Live,Magic,Attack,Defence,Duck,Speed,ShengWang,ShengMi;
-
+    private boolean isExist;
     private EditText mPersonID;
     private EditText mPersonJob;
     private EditText mPersonLiveJob;
@@ -42,21 +41,7 @@ public class PropertyFragment extends Fragment {
 
     }
 
-    @SuppressLint("ValidFragment")
-    public PropertyFragment(String ID, String job, String liveJob, int live, int magic, int attack, int defence, int duck, int speed, int shengWang, int shengMi,int level) {
-        this.ID = ID;
-        Job = job;
-        LiveJob = liveJob;
-        Live = live;
-        Magic = magic;
-        Attack = attack;
-        Defence = defence;
-        Duck = duck;
-        Speed = speed;
-        ShengWang = shengWang;
-        ShengMi = shengMi;
-        Level = level;
-    }
+
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
            mPersonID = (EditText) view.findViewById(R.id.personID);
@@ -73,6 +58,7 @@ public class PropertyFragment extends Fragment {
             mPersonLevel= (EditText) view.findViewById(R.id.personLevel);
             mPersonSave= (Button) view.findViewById(R.id.personSave);
 
+
             mPersonSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -83,6 +69,32 @@ public class PropertyFragment extends Fragment {
             });
     }
 
+
+
+    public void setText(PersonProperty personProperty){
+        ID = personProperty.getmID();
+        Job = personProperty.getJob();
+        LiveJob = personProperty.getLiveJob();
+        Live = personProperty.getLive();
+        Magic = personProperty.getMagic();
+        Attack = personProperty.getAttack();
+        Defence = personProperty.getDefence();
+        Duck = personProperty.getDuck();
+        Speed = personProperty.getSpeed();
+        ShengWang = personProperty.getShengWang();
+        ShengMi = personProperty.getShengMi();
+        Level = personProperty.getLevel();
+        mPersonID.setText(ID);
+        mPersonJob.setText(Job);
+        mPersonLiveJob.setText(Live);
+        mPersonLevel.setText(Level);
+        mPersonAttack.setText(Attack);
+        mPersonDefence.setText(Defence);
+        mPersonDuck.setText(Duck);
+        mPersonSpeed.setText(Speed);
+        mPersonShengWang.setText(ShengWang);
+        mPersonShengMi.setText(ShengMi);
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -107,7 +119,7 @@ public class PropertyFragment extends Fragment {
     private void save(){
         PersonProperty personProperty = new PersonProperty();
 
-        personProperty.setID(ID);
+        personProperty.setmID(ID);
         personProperty.setJob(Job);
         personProperty.setLiveJob(LiveJob);
         personProperty.setLevel(Level);
@@ -119,6 +131,9 @@ public class PropertyFragment extends Fragment {
         personProperty.setSpeed(Speed);
         personProperty.setShengWang(ShengWang);
         personProperty.setShengMi(ShengMi);
+        if(isExist){
+            personProperty.updateAll();
+        }
         personProperty.save();
 
     }

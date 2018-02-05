@@ -7,15 +7,15 @@ import org.litepal.crud.DataSupport;
  */
 
 public class PersonProperty extends DataSupport {
-    private String ID,Job,LiveJob;
+    private String mID,Job,LiveJob;
     private int Level,Live,Magic,Attack,Defence,Duck,Speed,ShengWang,ShengMi;
 
-    public String getID() {
-        return ID;
+    public String getmID() {
+        return mID;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setmID(String ID) {
+        this.mID = ID;
     }
 
     public String getJob() {

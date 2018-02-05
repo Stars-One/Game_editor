@@ -3,6 +3,7 @@ package com.wan.utils;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.LayoutInflater;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class MyfragmentAdapter extends FragmentPagerAdapter {
     private List<Fragment> mlist;
-
+    private LayoutInflater minflater ;
     public MyfragmentAdapter(FragmentManager fm, List<Fragment> mlist) {
         super(fm);
         this.mlist = mlist;
@@ -22,6 +23,8 @@ public class MyfragmentAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         return mlist.get(position);
     }
+
+
 
     @Override
     public int getCount() {
