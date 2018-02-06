@@ -84,7 +84,7 @@ public class PropertyFragment extends Fragment {
                     CurrentActivity activity = (CurrentActivity)getActivity();
                     PersonProperty personProperty = DataSupport.findFirst(PersonProperty.class);
                     activity.updateShowProperty(personProperty);
-                    activity.updatePointFragment(personProperty);
+
                 }
             });
     }

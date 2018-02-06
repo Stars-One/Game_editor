@@ -70,6 +70,7 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
                         mImageViewPointPlus.setBackgroundColor(colorgrey);
                         break;
                     case 2:
+                        
                         mImageViewProperty.setBackgroundColor(colorgrey);
                         mImageViewEquipment.setBackgroundColor(colorgrey);
                         mImageViewPointPlus.setBackgroundColor(colorblue);
@@ -174,9 +175,6 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
     }
     public void updatePointFragment(PersonProperty personProperty){
         PointPlusFragment pointPlusFragment = PointPlusFragment.newInstance(personProperty.getLevel(),personProperty.getLevel()*5,true);
-        mlist.remove(2);
-        mlist.add(pointPlusFragment);
-        mViewpager.setAdapter(new MyfragmentAdapter(manager,mlist));
-        mViewpager.getOffscreenPageLimit()
+
     }
 }
