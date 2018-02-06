@@ -38,14 +38,15 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
     private ImageView mImageViewPointPlus;
     private LinearLayout mLinearLayoutPointPlus;
     private FragmentManager manager;
+    private MyfragmentAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current);
         initView();
-
-        mViewpager.setAdapter(new MyfragmentAdapter(getSupportFragmentManager(), mlist));
+        adapter = new MyfragmentAdapter(getSupportFragmentManager(), mlist);
+        mViewpager.setAdapter(adapter);
         ViewPager.OnPageChangeListener listener = new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -113,14 +114,15 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
         if(DataSupport.isExist(PersonProperty.class)){
             PersonProperty personProperty = DataSupport.findFirst(PersonProperty.class);
             propertyFragment = PropertyFragment.newInstance(personProperty,true);
+            pointplusFragment = PointPlusFragment.newInstance(personProperty.getLevel()*5,personProperty.getLevel(),true);
             updateShowProperty(personProperty);
+
         }else{
             propertyFragment = PropertyFragment.newInstance(new PersonProperty(),false);
+            pointplusFragment = PointPlusFragment.newInstance(0,0,false);
         }
 
         equipmentFragment = new EquipmentFragment();
-        pointplusFragment = new PointPlusFragment();
-
 
 
         mlist.add(propertyFragment);
@@ -168,5 +170,13 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
     public void updateShowProperty(PersonProperty personProperty){
         ShowPropertyFragment showPropertyFragment=(ShowPropertyFragment)manager.findFragmentById(R.id.showPropertyFrag);
         showPropertyFragment.setText(personProperty);
+
+    }
+    public void updatePointFragment(PersonProperty personProperty){
+        PointPlusFragment pointPlusFragment = PointPlusFragment.newInstance(personProperty.getLevel(),personProperty.getLevel()*5,true);
+        mlist.remove(2);
+        mlist.add(pointPlusFragment);
+        mViewpager.setAdapter(new MyfragmentAdapter(manager,mlist));
+        mViewpager.getOffscreenPageLimit()
     }
 }

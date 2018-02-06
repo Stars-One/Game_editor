@@ -49,6 +49,7 @@
                    android:layout_height="50dp"
                    android:src="@drawable/plus"
                    android:scaleType="fitXY"
+                   android:visibility="invisible"
                    />
                <ImageView
                    android:id="@+id/minus_strength_btn"
@@ -56,6 +57,7 @@
                    android:layout_height="50dp"
                    android:src="@drawable/minus"
                    android:scaleType="fitXY"
+                   android:visibility="invisible"
                    />
            </LinearLayout>
 
@@ -98,6 +100,7 @@
                    android:layout_height="50dp"
                    android:src="@drawable/plus"
                    android:scaleType="fitXY"
+                   android:visibility="invisible"
                    />
                <ImageView
                    android:id="@+id/minus_spirit_btn"
@@ -105,6 +108,7 @@
                    android:layout_height="50dp"
                    android:src="@drawable/minus"
                    android:scaleType="fitXY"
+                   android:visibility="invisible"
                    />
            </LinearLayout>
        </LinearLayout>
@@ -147,6 +151,7 @@
                    android:layout_height="50dp"
                    android:src="@drawable/plus"
                    android:scaleType="fitXY"
+                   android:visibility="invisible"
                    />
                <ImageView
                    android:id="@+id/minus_quick_btn"
@@ -154,6 +159,7 @@
                    android:layout_height="50dp"
                    android:src="@drawable/minus"
                    android:scaleType="fitXY"
+                   android:visibility="invisible"
                    />
            </LinearLayout>
        </LinearLayout>
@@ -195,6 +201,7 @@
                    android:layout_height="50dp"
                    android:src="@drawable/plus"
                    android:scaleType="fitXY"
+                   android:visibility="invisible"
                    />
                <ImageView
                    android:id="@+id/minus_intelligence_btn"
@@ -202,6 +209,7 @@
                    android:layout_height="50dp"
                    android:src="@drawable/minus"
                    android:scaleType="fitXY"
+                   android:visibility="invisible"
                    />
            </LinearLayout>
        </LinearLayout>
@@ -243,6 +251,7 @@
                    android:layout_height="50dp"
                    android:src="@drawable/plus"
                    android:scaleType="fitXY"
+                   android:visibility="invisible"
                    />
                <ImageView
                    android:id="@+id/minus_defence_btn"
@@ -250,6 +259,7 @@
                    android:layout_height="50dp"
                    android:src="@drawable/minus"
                    android:scaleType="fitXY"
+                   android:visibility="invisible"
                    />
            </LinearLayout>
        </LinearLayout>
@@ -272,6 +282,7 @@
                   android:text=":"
                   android:textSize="20sp"/>
               <TextView
+                  android:id="@+id/showLevel"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:textSize="20sp"
@@ -292,6 +303,7 @@
                     android:text=":"
                     android:textSize="20sp"/>
                 <TextView
+                    android:id="@+id/showPoint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"

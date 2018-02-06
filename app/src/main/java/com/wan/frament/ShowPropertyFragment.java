@@ -70,6 +70,10 @@ public class ShowPropertyFragment extends Fragment {
         mCurrentShengWang.setText(String.valueOf(personProperty.getShengWang()));
         mCurrentShengMi.setText(String.valueOf(personProperty.getShengMi()));
     }
+
+    public int getLevel(){
+        return Integer.valueOf(mCurrentLevel.getText().toString());
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
