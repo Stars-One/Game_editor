@@ -8,7 +8,7 @@ public class SQLConstant {
     public static  final String DATA_NAME = "info.db";//数据库名称
     public static  final int DATA_BASE_VERSION = 1 ;//数据库版本
     public static  final String TABLE_NAME= "equipment";//表名
-
+    public static final String TEST = "test";
     public static  final String _ID= "_id";//id
     public static  final String NAME= "name";//装备名字
     public static  final String TYPE= "type";//装备种类
