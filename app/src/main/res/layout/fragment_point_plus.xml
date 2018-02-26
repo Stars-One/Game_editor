@@ -310,11 +310,216 @@
                     android:text="10"/>
             </LinearLayout>
         </LinearLayout>
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="保存加点"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="每一级有"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+                <EditText
+                    android:id="@+id/ed_level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:digits="0123456789"
+                    android:inputType="number"
+                    android:enabled="false"
+                    android:text="5"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:text="点数可加"/>
+            </LinearLayout>
+        </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+
+           <LinearLayout
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="1">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="1点力量="
+                   android:textSize="15sp"
+                   android:textStyle="bold"/>
+               <EditText
+                   android:id="@+id/ed_attack"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textColor="@color/colorAccent"
+                   android:enabled="false"
+                   android:digits="0123456789"
+                   android:inputType="number"
+                   android:text="4"/>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="15sp"
+                   android:textStyle="bold"
+                   android:text="点攻击"/>
+           </LinearLayout>
+           <LinearLayout
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="1">
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="1点体力="
+                   android:textSize="15sp"
+                   android:textStyle="bold"/>
+               <EditText
+                   android:id="@+id/ed_live"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textColor="@color/colorAccent"
+                   android:enabled="false"
+                   android:digits="0123456789"
+                   android:inputType="number"
+                   android:text="20"/>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="15sp"
+                   android:textStyle="bold"
+                   android:text="点生命"/>
+           </LinearLayout>
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+
+           <LinearLayout
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="1">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="1点智力="
+                   android:textSize="15sp"
+                   android:textStyle="bold"/>
+               <EditText
+                   android:id="@+id/ed_magic"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textColor="@color/colorAccent"
+                   android:enabled="false"
+                   android:digits="0123456789"
+                   android:inputType="number"
+                   android:text="20"/>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="15sp"
+                   android:textStyle="bold"
+                   android:text="点魔法值"/>
+           </LinearLayout>
+           <LinearLayout
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="1">
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="1点防御="
+                   android:textSize="15sp"
+                   android:textStyle="bold"/>
+               <EditText
+                   android:id="@+id/ed_defence"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textColor="@color/colorAccent"
+                   android:enabled="false"
+                   android:digits="0123456789"
+                   android:inputType="number"
+                   android:text="2"/>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="15sp"
+                   android:textStyle="bold"
+                   android:text="点防御"/>
+           </LinearLayout>
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="1点敏捷="
+               android:textSize="15sp"
+               android:textStyle="bold"/>
+           <EditText
+               android:id="@+id/ed_speed"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="@color/colorAccent"
+               android:enabled="false"
+               android:digits="0123456789"
+               android:inputType="number"
+               android:text="5"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="15sp"
+               android:textStyle="bold"
+               android:text="点速度+"/>
+           <EditText
+               android:id="@+id/ed_duck"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="@color/colorAccent"
+               android:enabled="false"
+               android:digits="0123456789"
+               android:inputType="number"
+               android:text="3"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textSize="15sp"
+               android:textStyle="bold"
+               android:text="点闪避"/>
+           <Button
+               android:id="@+id/edit_point"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="修改点数对应数值"/>
+       </LinearLayout>
    </LinearLayout>
-
-
-
 
 </ScrollView>

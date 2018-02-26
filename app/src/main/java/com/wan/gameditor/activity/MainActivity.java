@@ -3,19 +3,15 @@ package com.wan.gameditor.activity;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
-import android.content.ContentUris;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.DocumentsContract;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
@@ -25,6 +21,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,8 +32,16 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.wan.gameditor.R;
+import com.yalantis.ucrop.UCrop;
+import com.yalantis.ucrop.UCropActivity;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 
 import static com.wan.gameditor.activity.SettingActivity.CHOOSE_PHOTO;
+import static com.yalantis.ucrop.UCrop.REQUEST_CROP;
 
 
 /**
@@ -258,66 +263,56 @@ public class MainActivity extends AppCompatActivity
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode){
             case CHOOSE_PHOTO:
-                if (resultCode==RESULT_OK){
-                    if (Build.VERSION.SDK_INT>=19){
-                        handleImageOnkitKat(data);//高于4.4版本使用此方法处理图片
-                    }else{
-                        handleImageBeforeKitKat(data);//低于4.4版本使用此方法处理图片
+                if (resultCode == RESULT_OK) {
+                    Uri originUri = data.getData();
+                    startUcrop(originUri);
+                }
+                break;
+            case REQUEST_CROP:
+                if(resultCode==RESULT_OK){
+                    final Uri resultUri = UCrop.getOutput(data);
+                    Log.d("requestCROP",resultUri.toString());
+                    if (Build.VERSION.SDK_INT >= 19) {
+                        handleImageOnkitKat(resultUri);//高于4.4版本使用此方法处理图片
+                    } else {
+                        handleImageBeforeKitKat(resultUri);//低于4.4版本使用此方法处理图片
                     }
                 }
                 break;
-            default:break;
+            default:
+                break;
         }
     }
 
     @TargetApi(19)
-    private void handleImageOnkitKat(Intent data){
-        String imagePath = null;
-        Uri uri = data.getData();
-        if (DocumentsContract.isDocumentUri(this,uri)){
-            //如果是document类型的uri，则通过document id处理
-            String docId = DocumentsContract.getDocumentId(uri);
-            if ("com.android.providers.media.documents".equals(uri.getAuthority())){
-                String id = docId.split(":")[1];//解析出数字格式的id
-                String selection = MediaStore.Images.Media._ID + "=" + id;
-                imagePath = getImagePath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,selection);
-            } else if ("com.android,providers.downloads.documents".equals(uri.getAuthority())) {
-                Uri contentUri = ContentUris.withAppendedId(Uri.parse("content://downloads/public_downloads"),Long.valueOf(docId));
-                imagePath = getImagePath(contentUri,null);
-            }
-
-        }else if("content".equalsIgnoreCase(uri.getScheme())){
-            imagePath = getImagePath(uri,null);
-        }
+    private void handleImageOnkitKat(Uri resultUri) {
+        Uri uri = resultUri;//返回的Uri
+        String imagePath = uri.toString();
         displayImage(imagePath);
     }
 
-    private void handleImageBeforeKitKat(Intent data){
-        Uri uri = data.getData();
-        String imagePath = getImagePath(uri,null);
+    private void handleImageBeforeKitKat(Uri resultUri) {
+        Uri uri = resultUri;
+        String imagePath = uri.toString();
         displayImage(imagePath);
     }
-    //获得图片路径
-    public String getImagePath(Uri uri,String selection) {
-        String path = null;
-        Cursor cursor = getContentResolver().query(uri,null,selection,null,null);   //内容提供器
-        if (cursor!=null){
-            if (cursor.moveToFirst()){
-                path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));   //获取路径
-            }
-        }
-        cursor.close();
-        return path;
-    }
+
     //展示图片
     private void displayImage(String imagePath) {
-        if (imagePath != null){
-            save(imagePath);//保存图片地址
-            Bitmap bitImage = BitmapFactory.decodeFile(imagePath);//格式化图片
+        if (imagePath != null) {
+            save(imagePath);
+            InputStream is = null ;
+            try {
+                is = new URL(imagePath).openStream();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Bitmap bitImage = BitmapFactory.decodeStream(is);//格式化图片
             headImage.setImageBitmap(bitImage);//为imageView设置图片
-        }
-        else{
-            Toast.makeText(MainActivity.this,"获取图片失败",Toast.LENGTH_SHORT).show();
+
+        } else {
+            Toast.makeText(MainActivity.this, "获取图片失败", Toast.LENGTH_SHORT).show();
         }
     }
     private void save(String imagePath){
@@ -333,6 +328,27 @@ public class MainActivity extends AppCompatActivity
             String imagePath = preferences.getString("imagePath","");//取出保存的imagePath，若是找不到，则是返回一个空
             displayImage(imagePath);//调用显示图片方法，为ImageView设置图片
         }
+    }
+
+    private void startUcrop(Uri uri){
+        Uri mDestinationUri = Uri.fromFile(new File(getCacheDir(), "SampleCropImage.jpeg"));
+        UCrop uCrop = UCrop.of(uri, mDestinationUri);
+
+        // uCrop = uCrop.withAspectRatio(16, 9);//设置裁剪框宽高比例为16:9
+
+        UCrop.Options options = new UCrop.Options();//new一个设置
+        options.setCompressionFormat(Bitmap.CompressFormat.JPEG);//设置裁剪出来的是JPEG的图片格式
+        options.setAllowedGestures(UCropActivity.ALL, UCropActivity.ALL, UCropActivity.ALL);//缩放，旋转，裁剪
+        // options.setMaxBitmapSize(100);//设置载入的最大尺寸
+        options.setMaxScaleMultiplier(20);//设置最大缩放比例
+        options.setShowCropFrame(true);//设置是否展示矩形裁剪框
+
+        /*options.setCropGridStrokeWidth(20);//设置裁剪框横竖线的宽度
+        options.setCropGridColor(Color.GREEN);//设置裁剪框横竖线的颜色
+        options.setCropGridColumnCount(2);//设置竖线的数量
+        options.setCropGridRowCount(1);//设置横线的数量*/
+        uCrop.withOptions(options);
+        uCrop.start(MainActivity.this);
 
     }
 }

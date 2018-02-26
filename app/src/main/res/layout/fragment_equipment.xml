@@ -14,7 +14,7 @@
             android:id="@+id/image_head"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@drawable/vector_drawable_head"
+            android:background="@drawable/head"
             android:layout_gravity="center"/>
     </LinearLayout>
 
@@ -27,7 +27,8 @@
             android:id="@+id/image_defence"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@drawable/vector_drawable_shield"
+            android:background="@drawable/defence"
+            android:scaleType="center"
             android:orientation="horizontal"
             android:layout_alignParentRight="true"
             />
@@ -36,7 +37,8 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:orientation="horizontal"
-            android:background="@drawable/vector_drawable_sword"
+
+            android:background="@drawable/sword"
             android:layout_alignParentLeft="true"
             />
     </RelativeLayout>
@@ -52,7 +54,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_alignParentRight="true"
-            android:background="@drawable/vector_drawable_wing"
+            android:background="@drawable/wing"
             android:orientation="horizontal"
             />
 
@@ -60,7 +62,7 @@
             android:id="@+id/image_necklace"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@drawable/vector_drawable_necklace"
+            android:background="@drawable/necklace"
             android:orientation="horizontal"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -76,7 +78,7 @@
             android:id="@+id/image_belt"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@drawable/vector_drawable_belt"
+            android:background="@drawable/belt"
             android:orientation="horizontal"
             android:layout_alignParentRight="true"
             />
@@ -85,7 +87,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:orientation="horizontal"
-            android:background="@drawable/vector_drawable_clothes"
+            android:background="@drawable/clothe"
             android:layout_alignParentLeft="true"
             />
     </RelativeLayout>
@@ -99,7 +101,7 @@
             android:id="@+id/image_bracelet"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@drawable/vector_drawable_bracelet"
+            android:background="@drawable/cuff"
             android:orientation="horizontal"
             android:layout_alignParentRight="true"
             />
@@ -108,7 +110,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:orientation="horizontal"
-            android:background="@drawable/vector_drawable_pant"
+            android:background="@drawable/pant"
             android:layout_alignParentLeft="true"
             />
     </RelativeLayout>
@@ -147,8 +149,7 @@
             android:id="@+id/image_shoes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/vector_drawable_shoes"
-
+            android:src="@drawable/shoes"
             android:layout_gravity="center"/>
     </LinearLayout>
 

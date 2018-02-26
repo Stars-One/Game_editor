@@ -19,6 +19,8 @@ import com.wan.frament.ShowPropertyFragment;
 import com.wan.gameditor.R;
 import com.wan.utils.MyfragmentAdapter;
 import com.wan.utils.PersonProperty;
+import com.wan.utils.PointDuiYing;
+import com.wan.utils.PointPlused;
 
 import org.litepal.crud.DataSupport;
 
@@ -56,13 +58,15 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
             @Override
 
             public void onPageSelected(int position) {
-
+                PersonProperty personProperty = DataSupport.findFirst(PersonProperty.class);
                 switch (position) {
 
                     case 0:
                         mImageViewProperty.setBackgroundColor(colorblue);
                         mImageViewEquipment.setBackgroundColor(colorgrey);
                         mImageViewPointPlus.setBackgroundColor(colorgrey);
+                        PropertyFragment propertyFragment = (PropertyFragment) mlist.get(position);
+                        propertyFragment.setText(personProperty);
                         break;
                     case 1:
                         mImageViewProperty.setBackgroundColor(colorgrey);
@@ -70,7 +74,17 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
                         mImageViewPointPlus.setBackgroundColor(colorgrey);
                         break;
                     case 2:
-                        
+
+                        String level,point;
+                        level=String.valueOf(personProperty.getLevel());
+                        int i =personProperty.getLevel()*DataSupport.findFirst(PointDuiYing.class).getLevel();
+                        PointPlused p = DataSupport.findFirst(PointPlused.class);
+                        i = i-p.getStrength()-p.getDefence()-p.getIntelligence()-p.getQuick()-p.getSpirit();
+                        point = String.valueOf(i);
+
+                        PointPlusFragment plusFragment = (PointPlusFragment)mlist.get(position);
+
+                        plusFragment.setText(level,point);
                         mImageViewProperty.setBackgroundColor(colorgrey);
                         mImageViewEquipment.setBackgroundColor(colorgrey);
                         mImageViewPointPlus.setBackgroundColor(colorblue);
@@ -115,7 +129,8 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
         if(DataSupport.isExist(PersonProperty.class)){
             PersonProperty personProperty = DataSupport.findFirst(PersonProperty.class);
             propertyFragment = PropertyFragment.newInstance(personProperty,true);
-            pointplusFragment = PointPlusFragment.newInstance(personProperty.getLevel()*5,personProperty.getLevel(),true);
+            Log.d("CurentActivity","----"+personProperty.getLevel());
+            pointplusFragment = PointPlusFragment.newInstance(personProperty.getLevel(),personProperty.getLevel()*DataSupport.findFirst(PointDuiYing.class).getLevel(),true);
             updateShowProperty(personProperty);
 
         }else{
@@ -173,8 +188,5 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
         showPropertyFragment.setText(personProperty);
 
     }
-    public void updatePointFragment(PersonProperty personProperty){
-        PointPlusFragment pointPlusFragment = PointPlusFragment.newInstance(personProperty.getLevel(),personProperty.getLevel()*5,true);
 
-    }
 }

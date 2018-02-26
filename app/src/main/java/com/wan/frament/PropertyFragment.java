@@ -4,6 +4,7 @@ package com.wan.frament;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -146,6 +147,7 @@ public class PropertyFragment extends Fragment {
         this.Duck =Integer.valueOf(mPersonDuck.getText().toString());
         this.Speed = Integer.valueOf(mPersonSpeed.getText().toString());
         this.ShengWang = Integer.valueOf(mPersonShengWang.getText().toString());
+        Log.d("Property","-----声望"+mPersonShengWang.getText().toString());
         this.ShengMi = Integer.valueOf(mPersonShengMi.getText().toString());
     }
     private void save(){
@@ -154,15 +156,61 @@ public class PropertyFragment extends Fragment {
         personProperty.setmID(ID);
         personProperty.setJob(Job);
         personProperty.setLiveJob(LiveJob);
-        personProperty.setLevel(Level);
-        personProperty.setLive(Live);
-        personProperty.setMagic(Magic);
-        personProperty.setAttack(Attack);
-        personProperty.setDefence(Defence);
-        personProperty.setDuck(Duck);
-        personProperty.setSpeed(Speed);
-        personProperty.setShengWang(ShengWang);
-        personProperty.setShengMi(ShengMi);
+
+        if(Level!=0){
+            personProperty.setLevel(Level);
+        }else{
+            personProperty.setToDefault("Level");//设置为默认值，也就是为0，Litepal数据库中不能使用set方法来设置0
+        }
+
+        if (Live!=0){
+            personProperty.setLive(Live);
+        }else{
+            personProperty.setToDefault("Live");
+        }
+
+        if (Magic!=0){
+            personProperty.setMagic(Magic);
+        }else{
+            personProperty.setToDefault("Magic");
+        }
+
+        if (Attack!=0){
+            personProperty.setAttack(Attack);
+        }else{
+            personProperty.setToDefault("Attack");
+        }
+
+        if (Defence!=0){
+            personProperty.setDefence(Defence);
+        }else{
+            personProperty.setToDefault("Defence");
+        }
+
+        if (Duck!=0){
+            personProperty.setDuck(Duck);
+        }else{
+            personProperty.setToDefault("Duck");
+        }
+
+        if (Speed!=0){
+            personProperty.setSpeed(Speed);
+        }else{
+            personProperty.setToDefault("Speed");
+        }
+
+        if (ShengMi!=0){
+            personProperty.setShengMi(ShengMi);
+        }else{
+            personProperty.setToDefault("ShengMi");
+        }
+
+        if (ShengWang!=0){
+            personProperty.setShengWang(ShengWang);
+        }else{
+            personProperty.setToDefault("ShengWang");
+        }
+
 
         if (isExist){
             personProperty.updateAll();
