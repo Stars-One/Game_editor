@@ -134,6 +134,7 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
             updateShowProperty(personProperty);
 
         }else{
+
             propertyFragment = PropertyFragment.newInstance(new PersonProperty(),false);
             pointplusFragment = PointPlusFragment.newInstance(0,0,false);
         }
@@ -156,6 +157,11 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
         mImageViewPointPlus = (ImageView) findViewById(R.id.imageViewPointPlus);
         mLinearLayoutPointPlus = (LinearLayout) findViewById(R.id.linearLayoutPointPlus);
         mLinearLayoutPointPlus.setOnClickListener(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
     @Override
@@ -188,5 +194,7 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
         showPropertyFragment.setText(personProperty);
 
     }
-
+    public EquipmentFragment getEquipmentFragment(){
+        return (EquipmentFragment)mlist.get(1);
+    }
 }

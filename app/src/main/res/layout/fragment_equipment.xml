@@ -1,10 +1,12 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-              android:orientation="vertical"
              tools:context="com.wan.frament.EquipmentFragment">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -49,24 +51,21 @@
         android:layout_weight="1"
         >
 
-        <LinearLayout
+        <ImageView
             android:id="@+id/image_wing"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_alignParentRight="true"
-            android:background="@drawable/wing"
-            android:orientation="horizontal"
+            android:src="@drawable/wing"
             />
 
-        <LinearLayout
+        <ImageView
             android:id="@+id/image_necklace"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@drawable/necklace"
-            android:orientation="horizontal"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"/>
+            android:src="@drawable/necklace"
+            />
     </RelativeLayout>
 
     <RelativeLayout
@@ -74,20 +73,19 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         >
-        <LinearLayout
+        <ImageView
             android:id="@+id/image_belt"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@drawable/belt"
-            android:orientation="horizontal"
+            android:src="@drawable/belt"
             android:layout_alignParentRight="true"
             />
-        <LinearLayout
+        <ImageView
             android:id="@+id/image_clothes"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:orientation="horizontal"
-            android:background="@drawable/clothe"
+            android:src="@drawable/clothe"
             android:layout_alignParentLeft="true"
             />
     </RelativeLayout>
@@ -97,20 +95,18 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         >
-        <LinearLayout
+        <ImageView
             android:id="@+id/image_bracelet"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@drawable/cuff"
-            android:orientation="horizontal"
+            android:src="@drawable/cuff"
             android:layout_alignParentRight="true"
             />
-        <LinearLayout
+        <ImageView
             android:id="@+id/image_pant"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:orientation="horizontal"
-            android:background="@drawable/pant"
+            android:src="@drawable/pant"
             android:layout_alignParentLeft="true"
             />
     </RelativeLayout>
@@ -120,24 +116,19 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         >
-        <LinearLayout
+        <ImageView
             android:id="@+id/image_gemstone"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@drawable/vector_drawable_gemstone"
-            android:orientation="horizontal"
+            android:src="@drawable/vector_drawable_gemstone"
             android:layout_alignParentRight="true"
-
             />
-        <LinearLayout
+        <ImageView
             android:id="@+id/image_ring"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:orientation="horizontal"
-            android:background="@drawable/vector_drawable_ring"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"/>
+            android:src="@drawable/vector_drawable_ring"
+           />
     </RelativeLayout>
 
     <LinearLayout
@@ -154,3 +145,24 @@
     </LinearLayout>
 
 </LinearLayout>
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <FrameLayout
+           android:id="@+id/show_choose_frameLayout"
+           android:layout_width="200dp"
+           android:layout_height="match_parent"/>
+
+       <FrameLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+
+           android:layout_toRightOf="@+id/show_choose_frameLayout">
+
+       </FrameLayout>
+
+   </RelativeLayout>
+
+
+</RelativeLayout>

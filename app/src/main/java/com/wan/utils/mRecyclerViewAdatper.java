@@ -16,6 +16,7 @@ import java.util.List;
 
 public class mRecyclerViewAdatper extends RecyclerView.Adapter<mRecyclerViewAdatper.ViewHolder> {
     private List<EquipmentResult> equipmentResults;
+
     static class ViewHolder extends RecyclerView.ViewHolder{
         TextView name,type;
 
