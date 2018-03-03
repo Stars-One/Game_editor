@@ -4,6 +4,7 @@ package com.wan.frament;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,6 +23,7 @@ import com.wan.utils.ShowRecylerViewAdapter;
 public class ChooseEquipmentFragment extends Fragment implements View.OnClickListener{
 
     private String type;
+    private  ShowRecylerViewAdapter showRecylerViewAdapter;
     public ChooseEquipmentFragment() {
 
     }
@@ -57,7 +59,10 @@ public class ChooseEquipmentFragment extends Fragment implements View.OnClickLis
         Log.d("OnViewCreated","-----findviewbyid recylcerview----");
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recylcerview.setLayoutManager(layoutManager);
-        recylcerview.setAdapter(new ShowRecylerViewAdapter(type));
+        FragmentManager fragmentManager = getFragmentManager();
+        showRecylerViewAdapter = new ShowRecylerViewAdapter(type,fragmentManager);
+        recylcerview.setAdapter(showRecylerViewAdapter);
+
         textView.setText(type);
         imageView.setOnClickListener(this);
     }
@@ -72,5 +77,8 @@ public class ChooseEquipmentFragment extends Fragment implements View.OnClickLis
                 break;
             default:break;
         }
+    }
+    public ShowEquipmentPropertyFragment getShowEquipmentPropertyFragment(){
+        return showRecylerViewAdapter.getShowEquipmentPropertyFragment();
     }
 }

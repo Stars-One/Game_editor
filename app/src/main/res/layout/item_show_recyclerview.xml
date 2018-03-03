@@ -17,6 +17,7 @@
         android:textColor="#FFFFFF"
         android:text="Hello"/>
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
