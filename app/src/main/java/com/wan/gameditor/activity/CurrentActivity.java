@@ -47,6 +47,7 @@ public class CurrentActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current);
         initView();
+
         adapter = new MyfragmentAdapter(getSupportFragmentManager(), mlist);
         mViewpager.setAdapter(adapter);
         ViewPager.OnPageChangeListener listener = new ViewPager.OnPageChangeListener() {

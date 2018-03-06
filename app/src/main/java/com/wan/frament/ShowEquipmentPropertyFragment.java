@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,13 +21,15 @@ import com.wan.utils.EquipmentResult;
 
 import org.litepal.crud.DataSupport;
 
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ShowEquipmentPropertyFragment extends Fragment {
 
     private EquipmentResult temp;
-    private View view;
+
     private TextView mName;
     private TextView mEquipmentLevel;
     private TextView mType;
@@ -46,8 +47,8 @@ public class ShowEquipmentPropertyFragment extends Fragment {
     private TextView mSpecialEfficiency;
     private TextView mRequiredLevel;
     private ImageView cancel;
-    private Button zuangbei,xiezai;
-
+    private Button zuangbei;
+    private boolean isChoose;
     private static final String HEAD = "头饰";
     private static final String SHIELD = "防具";
     private static final String SWORD = "武器";
@@ -61,10 +62,11 @@ public class ShowEquipmentPropertyFragment extends Fragment {
     private static final String SHOES = "战靴";
     private static final String BRACELET = "手饰";
 
-    public static ShowEquipmentPropertyFragment newInstance(EquipmentResult temp){
+    public static ShowEquipmentPropertyFragment newInstance(EquipmentResult temp,boolean b){
         ShowEquipmentPropertyFragment showEquipmentPropertyFragment = new ShowEquipmentPropertyFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable("EquipmentResult",temp);
+        bundle.putBoolean("isChoose",b);
         showEquipmentPropertyFragment.setArguments(bundle);
         return showEquipmentPropertyFragment;
     }
@@ -74,7 +76,9 @@ public class ShowEquipmentPropertyFragment extends Fragment {
         super.onCreate(savedInstanceState);
         Bundle bundle = getArguments();
         temp = bundle.getParcelable("EquipmentResult");
-        
+        isChoose = bundle.getBoolean("isChoose");
+
+
     }
 
     public ShowEquipmentPropertyFragment() {
@@ -96,29 +100,27 @@ public class ShowEquipmentPropertyFragment extends Fragment {
     }
     private void initView(View v) {
        cancel = (ImageView)v.findViewById(R.id.show_cancel);
+
        cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CurrentActivity currentActivity = (CurrentActivity)getActivity();
-                FragmentManager manager = getFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction();
-                ChooseEquipmentFragment fragment = (ChooseEquipmentFragment) currentActivity.getEquipmentFragment().getChooseEquipmentFragment();
-                transaction.remove(fragment.getShowEquipmentPropertyFragment()).commit();
+                if (isChoose){
+                    removeFragment();
+                }else {
+                    removeFragmentforGetOff();
+                }
+
             }
         });
 
         zuangbei=(Button)v.findViewById(R.id.zuangbei);
-        xiezai=(Button)v.findViewById(R.id.xiexia);
+        if (!isChoose){
+            zuangbei.setVisibility(View.INVISIBLE);
+        }
         zuangbei.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                putOn();
-            }
-        });
-        xiezai.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getOff();
+                    putOn();
             }
         });
 
@@ -138,15 +140,16 @@ public class ShowEquipmentPropertyFragment extends Fragment {
         mSpecialEfficiency = (TextView)v.findViewById(R.id.special_efficiency);
         mRequiredLevel = (TextView)v.findViewById(R.id.required_level);
         mLive  = (TextView)v.findViewById(R.id.live);
-        AlreadyEquipment temp = new AlreadyEquipment();
-        temp.save();
+
+
     }
     private void setText(){
+
         mName.setText(temp.getName());
         mType.setText(temp.getType());
         mEquipmentLevel.setText(temp.getLevel());
-        Log.d("getText","-------"+temp.getLevel());
-       mLive.setText(String.valueOf(temp.getLive()));
+
+        mLive.setText(String.valueOf(temp.getLive()));
         mMagicAttack.setText(String.valueOf(temp.getMagic_attack()));
         mAttack.setText(String.valueOf(temp.getAttack()));
         mDefence.setText(String.valueOf(temp.getDefence()));
@@ -160,118 +163,87 @@ public class ShowEquipmentPropertyFragment extends Fragment {
         mExtraSkill.setText(temp.getExtra_skill());
         mSpecialEfficiency.setText(temp.getSpecial_efficiency());
         mRequiredLevel.setText(temp.getRequired_level());
+
     }
     private void putOn(){
-        if(!DataSupport.isExist(AlreadyEquipment.class)){
-            AlreadyEquipment temp = new AlreadyEquipment();
-            temp.save();
-            Log.d("ShowEquipmentProperty","-----不存在");
-        }else{
-            Log.d("ShowEquipmentProperty","------存在");
-            set();
-        }
+        set();
+
     }
-    private void getOff(){
-        
-        AlreadyEquipment alreadyEquipment = DataSupport.findFirst(AlreadyEquipment.class);
-        switch (temp.getType()){
-            case HEAD:
-                alreadyEquipment.setToDefault("head");
-                break;
-            case SHIELD:
-                alreadyEquipment.setToDefault("shield");
 
-                break;
-            case BELT:
-                alreadyEquipment.setToDefault("belt");
-
-                break;
-            case BRACELET:
-                alreadyEquipment.setToDefault("bracelet");
-                break;
-            case CLOTHES:
-                alreadyEquipment.setToDefault("clothes");
-
-                break;
-            case GEMSTONE:
-                alreadyEquipment.setToDefault("gemstone");
-
-                break;
-            case NECKLACE:
-                alreadyEquipment.setToDefault("necklace");
-
-                break;
-            case PANT:
-                alreadyEquipment.setToDefault("head");
-                break;
-            case RING:
-                alreadyEquipment.setToDefault("ring");
-                break;
-            case SHOES:
-                alreadyEquipment.setToDefault("shoes");
-                break;
-            case SWORD:
-                alreadyEquipment.setToDefault("sword");
-                break;
-            case WING:
-                alreadyEquipment.setToDefault("wing");
-                break;
-            default:
-                break;
-        }
-        Toast.makeText(getActivity(), "成功卸下装备！", Toast.LENGTH_SHORT).show();
-    }
     private void set(){
-        AlreadyEquipment alreadyEquipment = DataSupport.findFirst(AlreadyEquipment.class);
+
         switch (temp.getType()){
             case HEAD:
+                addAlreadyEquipment(HEAD);
 
-                alreadyEquipment.setHead(temp);
                 break;
             case SHIELD:
-
-                alreadyEquipment.setShield(temp);
+                addAlreadyEquipment(SHIELD);
 
                 break;
             case BELT:
 
-                alreadyEquipment.setBelt(temp);
+                addAlreadyEquipment(BELT);
                 break;
             case BRACELET:
-                alreadyEquipment.setBracelet(temp);
+                addAlreadyEquipment(BRACELET);
                 break;
             case CLOTHES:
 
-                alreadyEquipment.setClothes(temp);
+                addAlreadyEquipment(CLOTHES);
                 break;
             case GEMSTONE:
 
-                alreadyEquipment.setGemstone(temp);
+                addAlreadyEquipment(GEMSTONE);
                 break;
             case NECKLACE:
 
-                alreadyEquipment.setNecklace(temp);
+                addAlreadyEquipment(NECKLACE);
                 break;
             case PANT:
-                alreadyEquipment.setPant(temp);
+                addAlreadyEquipment(PANT);
                 break;
             case RING:
-                alreadyEquipment.setRing(temp);
+                addAlreadyEquipment(RING);
                 break;
             case SHOES:
-                alreadyEquipment.setShoes(temp);
+                addAlreadyEquipment(SHOES);
                 break;
             case SWORD:
-                alreadyEquipment.setSword(temp);
+                addAlreadyEquipment(SWORD);
                 break;
             case WING:
-                alreadyEquipment.setWing(temp);
+                addAlreadyEquipment(WING);
                 break;
             default:
                 break;
         }
-        alreadyEquipment.save();
         Toast.makeText(getActivity(), "成功装备！", Toast.LENGTH_SHORT).show();
-        Log.d("showequipment","------已经保存");
+        removeFragment();
+
+    }
+
+    private void addAlreadyEquipment(String s) {
+        List<AlreadyEquipment> list = DataSupport.where("type = ?",s).find(AlreadyEquipment.class);
+       for (AlreadyEquipment e:list){
+           if (e.getType().equals(s)){
+               e.setName(temp.getName());
+               e.save();
+           }
+       }
+    }
+
+    private void removeFragmentforGetOff(){
+        CurrentActivity currentActivity = (CurrentActivity)getActivity();
+        FragmentManager manager = getFragmentManager();
+        currentActivity.getEquipmentFragment().removeFragment();
+
+    }
+    private void removeFragment(){
+        CurrentActivity currentActivity = (CurrentActivity)getActivity();
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        ChooseEquipmentFragment fragment = (ChooseEquipmentFragment) currentActivity.getEquipmentFragment().getChooseEquipmentFragment();
+        transaction.remove(fragment.getShowEquipmentPropertyFragment()).commit();
     }
 }

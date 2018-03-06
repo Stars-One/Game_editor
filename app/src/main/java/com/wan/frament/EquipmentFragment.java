@@ -12,14 +12,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.wan.gameditor.R;
+import com.wan.utils.AlreadyEquipment;
+import com.wan.utils.EquipmentResult;
+
+import org.litepal.crud.DataSupport;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EquipmentFragment extends Fragment implements View.OnClickListener {
+public class EquipmentFragment extends Fragment implements View.OnClickListener,View.OnLongClickListener{
 
 
     private static final String HEAD = "头饰";
+    private static final String SHIELD = "防具";
     private static final String DEFENCE = "防具";
     private static final String SWORD = "武器";
     private static final String WING = "背饰";
@@ -45,10 +50,68 @@ public class EquipmentFragment extends Fragment implements View.OnClickListener 
     private ImageView mImageRing;
     private ImageView mImageShoes;
     private ChooseEquipmentFragment fragment;
+    private ShowEquipmentPropertyFragment fragment1;
+
+
     public EquipmentFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        init();
+    }
+    private void init(){
+        if (!DataSupport.isExist(AlreadyEquipment.class)){
+            //初始化alreadyEquipment，12条数据
+            for (int i=0;i<12;i++){
+                AlreadyEquipment equipment = new AlreadyEquipment();
+                equipment.setName(""+i);
+                switch (i){
+                    case 0:
+                        equipment.setType(HEAD);
+                        break;
+                    case 1:
+                        equipment.setType(SWORD);
+                        break;
+                    case 2:
+                        equipment.setType(SHIELD);
+                        break;
+                    case 3:
+                        equipment.setType(CLOTHES);
+                        break;
+                    case 4:
+                        equipment.setType(PANT);
+                        break;
+                    case 5:
+                        equipment.setType(DEFENCE);
+                        break;
+                    case 6:
+                        equipment.setType(BELT);
+                        break;
+                    case 7:
+                        equipment.setType(BRACELET);
+                        break;
+                    case 8:
+                        equipment.setType(GEMSTONE);
+                        break;
+                    case 9:
+                        equipment.setType(RING);
+                        break;
+                    case 10:
+                        equipment.setType(WING);
+                        break;
+                    case 11:
+                        equipment.setType(SHOES);
+                        break;
+                    default:break;
+                }
+                equipment.save();
+            }
+        }
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -86,7 +149,22 @@ public class EquipmentFragment extends Fragment implements View.OnClickListener 
         mImageGemstone.setOnClickListener(this);
         mImageRing.setOnClickListener(this);
         mImageShoes.setOnClickListener(this);
+        
+        
+        mImageHead.setOnLongClickListener(this);
+        mImageDefence.setOnLongClickListener(this);
+        mImageSword.setOnLongClickListener(this);
+        mImageWing.setOnLongClickListener(this);
+        mImageNecklace.setOnLongClickListener(this);
+        mImageBelt.setOnLongClickListener(this);
+        mImageClothes.setOnLongClickListener(this);
+        mImageBracelet.setOnLongClickListener(this);
+        mImagePant.setOnLongClickListener(this);
+        mImageGemstone.setOnLongClickListener(this);
+        mImageRing.setOnLongClickListener(this);
+        mImageShoes.setOnLongClickListener(this);
     }
+
 
     @Override
     public void onClick(View v) {
@@ -140,5 +218,81 @@ public class EquipmentFragment extends Fragment implements View.OnClickListener 
     }
     public Fragment getChooseEquipmentFragment(){
         return fragment;
+    }
+
+    public void removeFragment(){
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.remove(fragment1).commit();
+    }
+    @Override
+    public boolean onLongClick(View v) {
+
+        EquipmentResult equipmentResult;
+        switch (v.getId()){
+
+            case R.id.image_head:
+                equipmentResult = AlreadyEquipment.getEquipment(HEAD);
+                show(equipmentResult,HEAD);
+
+                break;
+            case R.id.image_defence:
+                equipmentResult = AlreadyEquipment.getEquipment(SHIELD);
+                show(equipmentResult,SHIELD);
+
+                break;
+            case R.id.image_sword:
+                equipmentResult = AlreadyEquipment.getEquipment(SWORD);
+                show(equipmentResult,SWORD);
+                break;
+            case R.id.image_wing:
+                equipmentResult = AlreadyEquipment.getEquipment(WING);
+                show(equipmentResult,WING);
+                break;
+            case R.id.image_necklace:
+                equipmentResult = AlreadyEquipment.getEquipment(NECKLACE);
+                show(equipmentResult,NECKLACE);
+                break;
+            case R.id.image_belt:
+                equipmentResult = AlreadyEquipment.getEquipment(BELT);
+                show(equipmentResult,BELT);
+                break;
+            case R.id.image_clothes:
+                equipmentResult = AlreadyEquipment.getEquipment(CLOTHES);
+                show(equipmentResult,CLOTHES);
+                break;
+            case R.id.image_pant:
+                equipmentResult = AlreadyEquipment.getEquipment(PANT);
+                show(equipmentResult,PANT);
+                break;
+            case R.id.image_gemstone:
+                equipmentResult = AlreadyEquipment.getEquipment(GEMSTONE);
+                show(equipmentResult,GEMSTONE);
+                break;
+            case R.id.image_ring:
+                equipmentResult = AlreadyEquipment.getEquipment(RING);
+                show(equipmentResult,RING);
+                break;
+            case R.id.image_shoes:
+                equipmentResult = AlreadyEquipment.getEquipment(SHOES);
+                show(equipmentResult,SHOES);
+                break;
+            case R.id.image_bracelet:
+                equipmentResult = AlreadyEquipment.getEquipment(BRACELET);
+                show(equipmentResult,BRACELET);
+                break;
+            default:break;
+        }
+        return true;
+    }
+    public void show(EquipmentResult equipmentResult,String s){
+        if (equipmentResult==null){
+            newFragment(s);
+        }else {
+            fragment1 = ShowEquipmentPropertyFragment.newInstance(equipmentResult,false);
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.show_equipment_frameLayout,fragment1).commit();
+        }
     }
 }

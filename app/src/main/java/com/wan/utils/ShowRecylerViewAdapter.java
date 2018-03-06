@@ -63,16 +63,17 @@ public class ShowRecylerViewAdapter extends RecyclerView.Adapter<ShowRecylerView
             @Override
             public void onClick(View v) {
                 EquipmentResult equipmentResult = DataSupport.where("Name = ?",nameTemp).findFirst(EquipmentResult.class);
-                showEquipmentPropertyFragment = ShowEquipmentPropertyFragment.newInstance(equipmentResult);
+                showEquipmentPropertyFragment = ShowEquipmentPropertyFragment.newInstance(equipmentResult,true);
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 transaction.replace(R.id.show_equipment_frameLayout,showEquipmentPropertyFragment).commit();
             }
         });
+
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EquipmentResult equipmentResult = DataSupport.where("Name = ?",nameTemp).findFirst(EquipmentResult.class);
-                showEquipmentPropertyFragment = ShowEquipmentPropertyFragment.newInstance(equipmentResult);
+                showEquipmentPropertyFragment = ShowEquipmentPropertyFragment.newInstance(equipmentResult,true);
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 transaction.replace(R.id.show_equipment_frameLayout,showEquipmentPropertyFragment).commit();
             }

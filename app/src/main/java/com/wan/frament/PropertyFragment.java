@@ -211,13 +211,11 @@ public class PropertyFragment extends Fragment {
             personProperty.setToDefault("ShengWang");
         }
 
-
         if (isExist){
             personProperty.updateAll();
         }else{
             personProperty.save();
         }
-
 
     }
 }

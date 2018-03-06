@@ -29,7 +29,6 @@ public class EquipmentResult extends DataSupport implements Parcelable {
     private int quick;
 
 
-
     public void setName(String name) {
         this.name = name;
     }
@@ -150,45 +149,6 @@ public class EquipmentResult extends DataSupport implements Parcelable {
         return quick;
     }
 
-    /*public EquipmentResult(String name, String required_level, String type, String level, int attack, int defence, int live, int speed, int duck, int magic_attack, int strength, int spirit, int intelligence, int quick, String extra_skill, String special_efficiency) {
-        this.name = name;
-        this.type = type;
-        this.required_level = required_level;
-        this.intelligence = intelligence;
-        this.spirit = spirit;
-        this.strength = strength;
-        this.magic_attack = magic_attack;
-        this.duck = duck;
-        this.speed = speed;
-        this.live = live;
-        this.defence = defence;
-        this.attack = attack;
-        this.special_efficiency = special_efficiency;
-        this.extra_skill = extra_skill;
-        this.level = level;
-        this.name = name;
-        this.type = type;
-        this.required_level = required_level;
-        this.quick = quick;
-
-        result = "装备名:  " + name;
-        result = result +"\n" + "装备级别:  " + level;
-
-        result =  result + " \n"+ "种类:  " + type ;
-        result = result + " \n"+  "攻击:  " + attack ;
-        result = result +"\n"+"防御： "   + defence ;
-        result =  result +"\n"+"气血： "  + live ;
-        result = result +"\n"+"魔攻： " + magic_attack ;
-        result = result +"\n"+"速度： "  + speed  ;
-        result = result +"\n"+"闪避： "  + duck ;
-        result = result +"\n"+"所需等级： " + required_level;
-        result = result +"\n"+"力量： " + strength ;
-        result = result +"\n"+"体力： "  + spirit ;
-        result =result +"\n"+ "智力： " + intelligence ;
-        result = result +"\n"+"敏捷： "  + quick ;
-        result = result +"\n"+"附加技能： "  + extra_skill ;
-        result = result +"\n"+"特效： " +special_efficiency+"\n\n" ;
-    }*/
 
     public String getName(){
         return this.name;
@@ -197,11 +157,6 @@ public class EquipmentResult extends DataSupport implements Parcelable {
     public String getType() {
         return type;
     }
-
-    /*public String toString(){
-
-        return result;
-    }*/
 
     public EquipmentResult() {
     }

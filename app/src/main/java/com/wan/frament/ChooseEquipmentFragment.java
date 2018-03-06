@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +28,7 @@ public class ChooseEquipmentFragment extends Fragment implements View.OnClickLis
     }
 
     public static ChooseEquipmentFragment newInstance(String type){
-        Log.d("ChooseEquipmentFragment","------newInstance---");
+
         ChooseEquipmentFragment chooseEquipmentFragment = new ChooseEquipmentFragment();
         Bundle bundle = new Bundle();
         bundle.putString("type",type);
@@ -56,7 +55,6 @@ public class ChooseEquipmentFragment extends Fragment implements View.OnClickLis
         ImageView imageView = (ImageView)view.findViewById(R.id.cancel);
         TextView textView = (TextView)view.findViewById(R.id.choose_title);
         RecyclerView recylcerview = (RecyclerView)view.findViewById(R.id.choose_recyclerView);
-        Log.d("OnViewCreated","-----findviewbyid recylcerview----");
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recylcerview.setLayoutManager(layoutManager);
         FragmentManager fragmentManager = getFragmentManager();
@@ -71,12 +69,16 @@ public class ChooseEquipmentFragment extends Fragment implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.cancel:
-                CurrentActivity activity = (CurrentActivity)getActivity();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.remove(activity.getEquipmentFragment().getChooseEquipmentFragment()).commit();
+                removeFragment();
+
                 break;
             default:break;
         }
+    }
+    public void removeFragment(){
+        CurrentActivity activity = (CurrentActivity)getActivity();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.remove(activity.getEquipmentFragment().getChooseEquipmentFragment()).commit();
     }
     public ShowEquipmentPropertyFragment getShowEquipmentPropertyFragment(){
         return showRecylerViewAdapter.getShowEquipmentPropertyFragment();
