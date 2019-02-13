@@ -1,4 +1,4 @@
-package com.wan.utils;
+package com.wan.gameditor.utils;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

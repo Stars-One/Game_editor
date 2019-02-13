@@ -1,4 +1,4 @@
-package com.wan.utils;
+package com.wan.gameditor.utils;
 
 import org.litepal.crud.DataSupport;
 

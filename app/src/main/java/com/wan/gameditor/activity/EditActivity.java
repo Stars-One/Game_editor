@@ -11,7 +11,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.wan.gameditor.R;
-import com.wan.utils.EquipmentResult;
+import com.wan.gameditor.utils.EquipmentResult;
 
 import org.litepal.crud.DataSupport;
 

@@ -1,4 +1,4 @@
-package com.wan.frament;
+package com.wan.gameditor.frament;
 
 
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.wan.gameditor.R;
 import com.wan.gameditor.activity.CurrentActivity;
-import com.wan.utils.PersonProperty;
+import com.wan.gameditor.utils.PersonProperty;
 
 import org.litepal.crud.DataSupport;
 

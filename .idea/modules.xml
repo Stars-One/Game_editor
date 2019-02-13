@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Gameditor.iml" filepath="$PROJECT_DIR$/Gameditor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GameEditor.iml" filepath="$PROJECT_DIR$/GameEditor.iml" />
+      <module fileurl="file://Q:\AndroidProject\GameEditor\Gameditor.iml" filepath="Q:\AndroidProject\GameEditor\Gameditor.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://Q:\AndroidProject\GameEditor\app\app.iml" filepath="Q:\AndroidProject\GameEditor\app\app.iml" />
     </modules>
   </component>
 </project>

@@ -1,4 +1,4 @@
-package com.wan.frament;
+package com.wan.gameditor.frament;
 
 
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.wan.gameditor.R;
-import com.wan.utils.PersonProperty;
+import com.wan.gameditor.utils.PersonProperty;
 
 /**
  * A simple {@link Fragment} subclass.

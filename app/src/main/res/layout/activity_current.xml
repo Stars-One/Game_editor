@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/showPropertyFrag"
-        android:name="com.wan.frament.ShowPropertyFragment"
+        android:name="com.wan.gameditor.frament.ShowPropertyFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5"

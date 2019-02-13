@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.wan.gameditor.R;
-import com.wan.utils.EquipmentResult;
+import com.wan.gameditor.utils.EquipmentResult;
 
 /**
  * @author stars-one

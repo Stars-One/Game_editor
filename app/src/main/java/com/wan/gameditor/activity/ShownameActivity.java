@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wan.gameditor.R;
-import com.wan.utils.EquipmentResult;
-import com.wan.utils.mRecyclerViewAdatper;
+import com.wan.gameditor.utils.EquipmentResult;
+import com.wan.gameditor.utils.mRecyclerViewAdatper;
 import com.yanzhenjie.recyclerview.swipe.SwipeItemClickListener;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenu;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuBridge;

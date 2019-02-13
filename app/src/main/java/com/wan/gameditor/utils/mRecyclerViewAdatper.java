@@ -1,4 +1,4 @@
-package com.wan.utils;
+package com.wan.gameditor.utils;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.wan.frament;
+package com.wan.gameditor.frament;
 
 
 import android.os.Bundle;

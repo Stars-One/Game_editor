@@ -32,10 +32,10 @@
     	</list>
     -->
     <list>
-        <mapping class="com.wan.utils.EquipmentResult"/>
-        <mapping class="com.wan.utils.PersonProperty"/>
-        <mapping class="com.wan.utils.PointPlused"/>
-        <mapping class="com.wan.utils.PointDuiYing"/>
+        <mapping class="com.wan.gameditor.utils.EquipmentResult"/>
+        <mapping class="com.wan.gameditor.utils.PersonProperty"/>
+        <mapping class="com.wan.gameditor.utils.PointPlused"/>
+        <mapping class="com.wan.gameditor.utils.PointDuiYing"/>
     </list>
 
     <!--

@@ -12,15 +12,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.wan.frament.EquipmentFragment;
-import com.wan.frament.PointPlusFragment;
-import com.wan.frament.PropertyFragment;
-import com.wan.frament.ShowPropertyFragment;
+import com.wan.gameditor.frament.EquipmentFragment;
+import com.wan.gameditor.frament.PointPlusFragment;
+import com.wan.gameditor.frament.PropertyFragment;
+import com.wan.gameditor.frament.ShowPropertyFragment;
 import com.wan.gameditor.R;
-import com.wan.utils.MyfragmentAdapter;
-import com.wan.utils.PersonProperty;
-import com.wan.utils.PointDuiYing;
-import com.wan.utils.PointPlused;
+import com.wan.gameditor.utils.MyfragmentAdapter;
+import com.wan.gameditor.utils.PersonProperty;
+import com.wan.gameditor.utils.PointDuiYing;
+import com.wan.gameditor.utils.PointPlused;
 
 import org.litepal.crud.DataSupport;
 

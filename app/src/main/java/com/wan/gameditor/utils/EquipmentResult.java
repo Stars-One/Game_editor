@@ -1,4 +1,4 @@
-package com.wan.utils;
+package com.wan.gameditor.utils;
 
 import android.os.Parcel;
 import android.os.Parcelable;
