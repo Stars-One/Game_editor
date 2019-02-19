@@ -194,6 +194,7 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent1);
                 break;
             case R.id.new_part:
+                Toast.makeText(this, "功能还在开发中...", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.about:
                 onBackPressed();

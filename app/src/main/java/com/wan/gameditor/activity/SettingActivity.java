@@ -57,6 +57,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.changeColor:
+                Toast.makeText(this, "功能正在开发中...", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;

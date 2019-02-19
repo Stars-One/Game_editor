@@ -65,6 +65,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="introduce">打开角色当前属性，输入角色的基本信息，职业，等级等等 之后进入到加点界面（不进入的话之后程序就会报错，必须卸载重装才能解决）\nPS： 若是要修改点数所对应的属性值，修改之后记得手动还原角色的属性值\n如要修改1点力量对应5点攻击，则需要将角色的攻击属性还原，其他的未修改则无需修改，之后在进行加点即可</string>
 
 
 </resources>
