@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.wan.gameditor.activity.SettingActivity">
+    tools:context="com.wan.gameeditor1.activity.SettingActivity">
     <Button
         android:id="@+id/changePictur"
         android:layout_width="match_parent"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.wan.gameditor.activity.ShownameActivity">
+    tools:context="com.wan.gameeditor1.activity.ShownameActivity">
     <com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView
         android:id="@+id/mrecyclerview"
         android:layout_width="match_parent"

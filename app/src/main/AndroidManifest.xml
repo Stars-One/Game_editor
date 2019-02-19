@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.wan.gameditor">
+          package="com.wan.gameeditor1">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:name="org.litepal.LitePalApplication"
@@ -11,28 +11,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.wan.gameeditor1.activity.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".activity.NewActivity">
+        <activity android:name="com.wan.gameeditor1.activity.NewActivity">
         </activity>
-        <activity android:name=".activity.EditActivity">
+        <activity android:name="com.wan.gameeditor1.activity.EditActivity">
         </activity>
-        <activity android:name=".activity.ShowActivity">
+        <activity android:name="com.wan.gameeditor1.activity.ShowActivity">
         </activity>
-        <activity android:name=".activity.StartActivity">
+        <activity android:name="com.wan.gameeditor1.activity.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ShownameActivity">
+        <activity android:name="com.wan.gameeditor1.activity.ShownameActivity">
         </activity>
-        <activity android:name=".activity.SettingActivity">
+        <activity android:name="com.wan.gameeditor1.activity.SettingActivity">
         </activity>
-        <activity android:name=".activity.CurrentActivity"
+        <activity android:name="com.wan.gameeditor1.activity.CurrentActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
         <activity
